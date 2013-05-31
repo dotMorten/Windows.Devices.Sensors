@@ -13,3 +13,8 @@ TODO:
 - Simple Orientation sensor
 - Gyrometer
 - Inclinometer
+
+
+
+Based on "Windows® API Code Pack for Microsoft® .NET Framework": 
+http://archive.msdn.microsoft.com/WindowsAPICodePack
