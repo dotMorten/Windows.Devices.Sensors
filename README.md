@@ -1,4 +1,15 @@
 Windows.Devices.Sensors
 =======================
 
-Sensors API for .NET Windows Desktop apps that matches the Windows Store and WIndows Phone APIs
+Sensor API for .NET Windows Desktop apps that matches the Windows Store and WIndows Phone APIs
+
+Currently supported sensors:
+- Compass
+- Accelerometer
+
+TODO:
+- Light sensor
+- Orientation sensor
+- Simple Orientation sensor
+- Gyrometer
+- Inclinometer
