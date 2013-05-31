@@ -1,0 +1,54 @@
+﻿<Window x:Class="TestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:TestApp"
+        Title="Sensor Sample App" Height="350" Width="525">
+	<Window.Resources>
+		<local:MainWindowVM x:Key="vm" />
+		<Style TargetType="TextBlock">
+			<Setter Property="Margin" Value="5" />
+			<Setter Property="FontSize" Value="18" />
+		</Style>
+	</Window.Resources>
+	<Grid DataContext="{StaticResource vm}" Margin="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<TextBlock Text="Compass" VerticalAlignment="Center" />
+		<TextBlock Text="Accelerometer" VerticalAlignment="Center" Grid.Row="1" />
+		<TextBlock Text="Light sensor" VerticalAlignment="Center" Grid.Row="2" />
+		<TextBlock Text="Orientation sensor" VerticalAlignment="Center" Grid.Row="3" />
+		<TextBlock Text="Gyrometer" VerticalAlignment="Center" Grid.Row="4" />
+		<TextBlock Text="Inclinometer" VerticalAlignment="Center" Grid.Row="5" />
+		<TextBlock Text="Simple Orientation sensor" VerticalAlignment="Center" Grid.Row="6" />
+
+		<TextBlock Grid.Column="1" Grid.Row="0" 
+				   Text="{Binding CompassReading.HeadingMagneticNorth, Mode=OneWay, StringFormat=\{0:0.0\}, TargetNullValue=N/A}" />
+		<TextBlock Grid.Column="1" Grid.Row="1">
+			<TextBlock.Text>
+				<MultiBinding StringFormat="X={0:0.000}, Y={1:0.000}, Z={2:0.000}" TargetNullValue="N/A">
+					<Binding Path="AccelerometerReading.AccelerationX" />
+					<Binding Path="AccelerometerReading.AccelerationY" />
+					<Binding Path="AccelerometerReading.AccelerationZ" />
+				</MultiBinding>
+			</TextBlock.Text>
+		</TextBlock>
+
+		<TextBlock Grid.Column="1" Grid.Row="2" Text="TODO" />
+		<TextBlock Grid.Column="1" Grid.Row="3" Text="TODO" />
+		<TextBlock Grid.Column="1" Grid.Row="4" Text="TODO" />
+		<TextBlock Grid.Column="1" Grid.Row="5" Text="TODO" />
+		<TextBlock Grid.Column="1" Grid.Row="6" Text="TODO" />
+
+	</Grid>
+</Window>

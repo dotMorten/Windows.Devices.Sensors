@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows.Devices.Sensors", "Windows.Devices.Sensors\Windows.Devices.Sensors.csproj", "{E1E123D6-A7BE-41F8-A799-CBB646829150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{191249B6-CEFD-4197-9FED-4C7CFD163113}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1E123D6-A7BE-41F8-A799-CBB646829150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E123D6-A7BE-41F8-A799-CBB646829150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E123D6-A7BE-41F8-A799-CBB646829150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E123D6-A7BE-41F8-A799-CBB646829150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{191249B6-CEFD-4197-9FED-4C7CFD163113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{191249B6-CEFD-4197-9FED-4C7CFD163113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{191249B6-CEFD-4197-9FED-4C7CFD163113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{191249B6-CEFD-4197-9FED-4C7CFD163113}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
