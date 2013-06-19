@@ -663,7 +663,9 @@ namespace Windows.Devices.Sensors.PropertySystem
                         return GetVector<string>();
                     case (VarEnum.VT_VECTOR | VarEnum.VT_I2):
                         return GetVector<Int16>();
-                    case (VarEnum.VT_VECTOR | VarEnum.VT_UI2):
+					case (VarEnum.VT_VECTOR | VarEnum.VT_UI1):
+						return GetVector<byte>();
+					case (VarEnum.VT_VECTOR | VarEnum.VT_UI2):
                         return GetVector<UInt16>();
                     case (VarEnum.VT_VECTOR | VarEnum.VT_I4):
                         return GetVector<Int32>();
@@ -723,7 +725,10 @@ namespace Windows.Devices.Sensors.PropertySystem
         {
             int count = PropVariantNativeMethods.PropVariantGetElementCount(this);
             if (count <= 0) { return null; }
-
+			if(typeof(T) == typeof(byte))
+			{
+				return this.GetBlobData() as T[];
+			}
             lock (_padlock)
             {
                 if (_vectorActions == null)

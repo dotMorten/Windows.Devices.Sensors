@@ -47,6 +47,8 @@
     <Compile Include="Compass.cs" />
     <Compile Include="CompassInternal.cs" />
     <Compile Include="Accelerometer.cs" />
+    <Compile Include="OrientationSensor.cs" />
+    <Compile Include="OrientationSensorInternal.cs" />
     <Compile Include="Interop\CoreErrorHelper.cs" />
     <Compile Include="Interop\CoreHelpers.cs" />
     <Compile Include="Interop\ISensor.cs" />

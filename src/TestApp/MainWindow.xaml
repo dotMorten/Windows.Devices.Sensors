@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:local="clr-namespace:TestApp"
-        Title="Sensor Sample App" Height="350" Width="525">
+        Title="Sensor Sample App" Height="420" Width="625">
 	<Window.Resources>
 		<local:MainWindowVM x:Key="vm" />
 		<Style TargetType="TextBlock">
@@ -26,8 +26,8 @@
 		</Grid.ColumnDefinitions>
 		<TextBlock Text="Compass" VerticalAlignment="Center" />
 		<TextBlock Text="Accelerometer" VerticalAlignment="Center" Grid.Row="1" />
-		<TextBlock Text="Light sensor" VerticalAlignment="Center" Grid.Row="2" />
-		<TextBlock Text="Orientation sensor" VerticalAlignment="Center" Grid.Row="3" />
+		<TextBlock Text="Orientation sensor" VerticalAlignment="Top" Grid.Row="2" />
+		<TextBlock Text="Light sensor" VerticalAlignment="Center" Grid.Row="3" />
 		<TextBlock Text="Gyrometer" VerticalAlignment="Center" Grid.Row="4" />
 		<TextBlock Text="Inclinometer" VerticalAlignment="Center" Grid.Row="5" />
 		<TextBlock Text="Simple Orientation sensor" VerticalAlignment="Center" Grid.Row="6" />
@@ -44,7 +44,40 @@
 			</TextBlock.Text>
 		</TextBlock>
 
-		<TextBlock Grid.Column="1" Grid.Row="2" Text="TODO" />
+		<!--OrientationSensor-->
+		<StackPanel Grid.Column="1" Grid.Row="2">
+			<TextBlock DataContext="{Binding OrientationSensorReading.Quaternion}">
+				<TextBlock.Text>
+					<MultiBinding StringFormat="W={0:0.000}, X={1:0.000}, Y={2:0.000}, Z={3:0.000}" TargetNullValue="N/A">
+						<Binding Path="W" />
+						<Binding Path="X" />
+						<Binding Path="Y" />
+						<Binding Path="Z" />
+					</MultiBinding>
+				</TextBlock.Text>
+			</TextBlock>
+			<Grid ShowGridLines="True" DataContext="{Binding OrientationSensorReading.RotationMatrix}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding M11}" />
+				<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding M12}" />
+				<TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding M13}" />
+				<TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding M21}" />
+				<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding M22}" />
+				<TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding M23}" />
+				<TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding M31}" />
+				<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding M32}" />
+				<TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding M33}" />
+			</Grid>
+		</StackPanel>
 		<TextBlock Grid.Column="1" Grid.Row="3" Text="TODO" />
 		<TextBlock Grid.Column="1" Grid.Row="4" Text="TODO" />
 		<TextBlock Grid.Column="1" Grid.Row="5" Text="TODO" />

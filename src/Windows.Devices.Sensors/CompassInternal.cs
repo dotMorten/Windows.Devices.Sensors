@@ -7,6 +7,8 @@ namespace Windows.Devices.Sensors
 	[SensorDescription("76B5CE0D-17DD-414D-93A1-E127F40BDF6E")]
 	internal class CompassInternal : Sensor
 	{
+		private static Guid SensorDataKey = new Guid("1637d8a2-4248-4275-865d-558de84aedfd");
+
 		public CompassInternal() : base() { }
 
 		public double CurrentHeading
@@ -18,11 +20,11 @@ namespace Windows.Devices.Sensors
 				return GetHeading(this.DataReport);
 			}
 		}
+
 		private double GetHeading(SensorReport report)
 		{
 			if (report == null) { throw new ArgumentNullException("report"); }
-			var g = new Guid("1637d8a2-4248-4275-865d-558de84aedfd");
-			object val = report.Values[g][0];
+			object val = report.Values[SensorDataKey][0];
 			return (double)val;
 		}
 	}

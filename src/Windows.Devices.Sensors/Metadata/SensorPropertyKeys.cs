@@ -224,8 +224,18 @@ namespace Windows.Devices.Sensors.Metadata
         /// The sensor gravitational acceleration (Z-axis) property key.
         /// </summary>
         public static readonly PropertyKey SensorDataTypeAccelerationZG = new PropertyKey(new Guid(0X3F8A69A2, 0X7C5, 0X4E48, 0XA9, 0X65, 0XCD, 0X79, 0X7A, 0XAB, 0X56, 0XD5), 4);
-        
-        /// <summary>
+
+		/// <summary>
+		/// The sensor motion sensor rotation matrix property key.
+		/// </summary>
+		public static readonly PropertyKey SensorDataTypeRotationMatrix = new PropertyKey(new Guid(0X3F8A69A2, 0X7C5, 0X4E48, 0XA9, 0X65, 0XCD, 0X79, 0X7A, 0XAB, 0X56, 0XD5), 16);
+
+		/// <summary>
+		/// The sensor motion sensor Quaternion property key.
+		/// </summary>
+		public static readonly PropertyKey SensorDataTypeQuaternion = new PropertyKey(new Guid(0X3F8A69A2, 0X7C5, 0X4E48, 0XA9, 0X65, 0XCD, 0X79, 0X7A, 0XAB, 0X56, 0XD5), 17);
+
+		/// <summary>
         /// The sensor angular acceleration per second (X-axis) property key.
         /// </summary>
         public static readonly PropertyKey SensorDataTypeAngularAccelerationXDegreesPerSecond = new PropertyKey(new Guid(0X3F8A69A2, 0X7C5, 0X4E48, 0XA9, 0X65, 0XCD, 0X79, 0X7A, 0XAB, 0X56, 0XD5), 5);

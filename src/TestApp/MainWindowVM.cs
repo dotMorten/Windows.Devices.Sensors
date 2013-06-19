@@ -32,6 +32,12 @@ namespace TestApp
 				accelerometer.ReadingChanged += accelerometer_ReadingChanged;
 				AccelerometerReading = accelerometer.GetCurrentReading();
 			}
+			var orientation = Windows.Devices.Sensors.OrientationSensor.Default;
+			if (orientation != null)
+			{
+				orientation.ReadingChanged += orentation_ReadingChanged;
+				OrientationSensorReading = orientation.GetCurrentReading();
+			}
 		}
 
 		#region Compass
@@ -73,6 +79,27 @@ namespace TestApp
 		}
 
 		#endregion Accelerometer
+
+		#region Orientation
+
+		private OrientationSensorReading m_OrientationSensorReading;
+
+		public OrientationSensorReading OrientationSensorReading
+		{
+			get { return m_OrientationSensorReading; }
+			set { m_OrientationSensorReading = value; OnPropertyChanged(); }
+		}
+
+		private void orentation_ReadingChanged(object sender, Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs e)
+		{
+			System.Windows.Application.Current.Dispatcher.BeginInvoke((Action)delegate
+			{
+				OrientationSensorReading = e.Reading;
+			});
+		}
+
+		#endregion Orientation
+
 
 		private void OnPropertyChanged([CallerMemberName]string propertyName = null)
 		{
