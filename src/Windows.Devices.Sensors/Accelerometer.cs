@@ -6,25 +6,25 @@ namespace Windows.Devices.Sensors
 	public class Accelerometer
 	{
 		/// <summary>
-		/// The default compass or null if no integrated compasses are found.
+		/// Gets the default accelerometer.
 		/// </summary>
-		public static Accelerometer Default
+		/// <returns>
+		/// The default accelerometer or null if no accelerometer is found.
+		/// </returns>
+		public static Accelerometer GetDefault()
 		{
-			get
+			try
 			{
-				try
+				var sensorList = SensorManager.GetSensorsByTypeId<Accelerometer3DInternal>();
+				if (sensorList.Count > 0)
 				{
-					var sensorList = SensorManager.GetSensorsByTypeId<Accelerometer3DInternal>();
-					if (sensorList.Count > 0)
-					{
-						return new Accelerometer(sensorList[0]);
-					}
+					return new Accelerometer(sensorList[0]);
 				}
-				catch
-				{
-				}
-				return null;
 			}
+			catch
+			{
+			}
+			return null;
 		}
 
 		private Sensors.Accelerometer3DInternal m_accelerometer;

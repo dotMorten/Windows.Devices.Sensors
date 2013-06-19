@@ -6,25 +6,25 @@ namespace Windows.Devices.Sensors
 	public class Compass
 	{
 		/// <summary>
-		/// The default compass or null if no integrated compasses are found.
+		/// Gets the default compass.
 		/// </summary>
-		public static Compass Default
+		/// <returns>
+		/// The default compass or null if no compass is found.
+		/// </returns>
+		public static Compass GetDefault()
 		{
-			get
+			try
 			{
-				try
+				var sensorList = SensorManager.GetSensorsByTypeId<CompassInternal>();
+				if (sensorList.Count > 0)
 				{
-					var sensorList = SensorManager.GetSensorsByTypeId<CompassInternal>();
-					if (sensorList.Count > 0)
-					{
-						return new Compass(sensorList[0]);
-					}
+					return new Compass(sensorList[0]);
 				}
-				catch
-				{
-				}
-				return null;
 			}
+			catch
+			{
+			}
+			return null;
 		}
 
 		private Sensors.CompassInternal m_compass;

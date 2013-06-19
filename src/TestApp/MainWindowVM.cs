@@ -20,19 +20,19 @@ namespace TestApp
 
 		private void StartSensors()
 		{
-			var compass = Windows.Devices.Sensors.Compass.Default;
+			var compass = Windows.Devices.Sensors.Compass.GetDefault();
 			if (compass != null)
 			{
 				compass.ReadingChanged += compass_ReadingChanged;
 				CompassReading = compass.GetCurrentReading();
 			}
-			var accelerometer = Windows.Devices.Sensors.Accelerometer.Default;
+			var accelerometer = Windows.Devices.Sensors.Accelerometer.GetDefault();
 			if (accelerometer != null)
 			{
 				accelerometer.ReadingChanged += accelerometer_ReadingChanged;
 				AccelerometerReading = accelerometer.GetCurrentReading();
 			}
-			var orientation = Windows.Devices.Sensors.OrientationSensor.Default;
+			var orientation = Windows.Devices.Sensors.OrientationSensor.GetDefault();
 			if (orientation != null)
 			{
 				orientation.ReadingChanged += orentation_ReadingChanged;

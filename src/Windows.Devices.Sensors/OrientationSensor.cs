@@ -6,25 +6,25 @@ namespace Windows.Devices.Sensors
 	public class OrientationSensor
 	{
 		/// <summary>
-		/// The default compass or null if no integrated compasses are found.
+		/// Gets the default orientation sensor.
 		/// </summary>
-		public static OrientationSensor Default
+		/// <returns>
+		/// The default orientation sensor or null if no orientation sensors are found.
+		/// </returns>
+		public static OrientationSensor GetDefault()
 		{
-			get
+			try
 			{
-				try
+				var sensorList = SensorManager.GetSensorsByTypeId<OrientationSensorInternal>();
+				if (sensorList.Count > 0)
 				{
-					var sensorList = SensorManager.GetSensorsByTypeId<OrientationSensorInternal>();
-					if (sensorList.Count > 0)
-					{
-						return new OrientationSensor(sensorList[0]);
-					}
+					return new OrientationSensor(sensorList[0]);
 				}
-				catch
-				{
-				}
-				return null;
 			}
+			catch
+			{
+			}
+			return null;
 		}
 
 		private Sensors.OrientationSensorInternal m_orientationSensor;
