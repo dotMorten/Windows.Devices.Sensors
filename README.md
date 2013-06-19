@@ -6,10 +6,10 @@ Sensor API for .NET Windows Desktop apps that matches the Windows Store and Wind
 Currently supported sensors:
 - [Compass] (http://msdn.microsoft.com/en-us/library/windows/apps/windows.devices.sensors.compass.aspx)
 - [Accelerometer] (http://msdn.microsoft.com/en-us/library/windows/apps/windows.devices.sensors.accelerometer.aspx)
+- [OrientationSensor] (http://msdn.microsoft.com/en-us/library/windows/apps/windows.devices.sensors.orientationsensor.aspx)
 
 TODO:
 - Light sensor
-- Orientation sensor
 - Simple Orientation sensor
 - Gyrometer
 - Inclinometer
